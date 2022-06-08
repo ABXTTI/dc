@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="product_template_form_inherit" model="ir.ui.view">
+        <field name="name">product.template.form.inherit</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='barcode']" position="after">
+                <field name="x_brand"/>
+                <field name="x_hscode"/>
+                <field name="type_filter"/>
+            </xpath>
+            <xpath expr="//group[@name='group_lots_and_weight']" position="after">
+                <group name="carton_logistics_sc" string="Carton Logistics SC" attrs="{'invisible': [('type', 'not in', ['product', 'consu'])]}">
+                    <label for="sc_ean" attrs="{'invisible':[('product_variant_count', '&gt;', 1), ('is_product_variant', '=', False)]}"/>
+                    <div class="o_row" name="sc_ean" attrs="{'invisible':[('product_variant_count', '&gt;', 1), ('is_product_variant', '=', False)]}">
+                        <field name="sc_ean"/>
+                    </div>
+                    <label for="sc_quantity" attrs="{'invisible':[('product_variant_count', '&gt;', 1), ('is_product_variant', '=', False)]}"/>
+                    <div class="o_row" name="sc_quantity" attrs="{'invisible':[('product_variant_count', '&gt;', 1), ('is_product_variant', '=', False)]}">
+                        <field name="sc_quantity"/>
+                    </div>
+                    <label for="sc_uom" attrs="{'invisible':[('product_variant_count', '&gt;', 1), ('is_product_variant', '=', False)]}"/>
+                    <div class="o_row" name="sc_uom" attrs="{'invisible':[('product_variant_count', '&gt;', 1), ('is_product_variant', '=', False)]}">
+                        <field name="sc_uom"/>
+                    </div>
+                    <label for="sc_weight" attrs="{'invisible':[('product_variant_count', '&gt;', 1), ('is_product_variant', '=', False)]}"/>
+                    <div class="o_row" name="sc_weight" attrs="{'invisible':[('product_variant_count', '&gt;', 1), ('is_product_variant', '=', False)]}">
+                        <field name="sc_weight"/>
+                    </div>
+                    <label for="sc_volume" attrs="{'invisible':[('product_variant_count', '&gt;', 1), ('is_product_variant', '=', False)]}"/>
+                    <div class="o_row" name="sc_volume" attrs="{'invisible':[('product_variant_count', '&gt;', 1), ('is_product_variant', '=', False)]}">
+                        <field name="sc_volume" string="Volume"/>
+                    </div>
+                </group>
+                <group name="carton_logistics_mc" string="Carton Logistics MC" attrs="{'invisible': [('type', 'not in', ['product', 'consu'])]}">
+                    <label for="mc_ean" attrs="{'invisible':[('product_variant_count', '&gt;', 1), ('is_product_variant', '=', False)]}"/>
+                    <div class="o_row" name="mc_ean" attrs="{'invisible':[('product_variant_count', '&gt;', 1), ('is_product_variant', '=', False)]}">
+                        <field name="mc_ean"/>
+                    </div>
+                    <label for="mc_quantity" attrs="{'invisible':[('product_variant_count', '&gt;', 1), ('is_product_variant', '=', False)]}"/>
+                    <div class="o_row" name="mc_quantity" attrs="{'invisible':[('product_variant_count', '&gt;', 1), ('is_product_variant', '=', False)]}">
+                        <field name="mc_quantity"/>
+                    </div>
+                    <label for="mc_uom" attrs="{'invisible':[('product_variant_count', '&gt;', 1), ('is_product_variant', '=', False)]}"/>
+                    <div class="o_row" name="mc_uom" attrs="{'invisible':[('product_variant_count', '&gt;', 1), ('is_product_variant', '=', False)]}">
+                        <field name="mc_uom"/>
+                    </div>
+                    <label for="mc_weight" attrs="{'invisible':[('product_variant_count', '&gt;', 1), ('is_product_variant', '=', False)]}"/>
+                    <div class="o_row" name="mc_weight" attrs="{'invisible':[('product_variant_count', '&gt;', 1), ('is_product_variant', '=', False)]}">
+                        <field name="mc_weight"/>
+                    </div>
+                    <label for="mc_volume" attrs="{'invisible':[('product_variant_count', '&gt;', 1), ('is_product_variant', '=', False)]}"/>
+                    <div class="o_row" name="mc_volume" attrs="{'invisible':[('product_variant_count', '&gt;', 1), ('is_product_variant', '=', False)]}">
+                        <field name="mc_volume" string="Volume"/>
+                    </div>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>
